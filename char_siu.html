@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,16 +10,24 @@
 
     <title>Food Recipies</title>
 	<link rel="stylesheet" href="../document/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../document/css/custom.css"/>
 	
-	<link rel="stylesheet" href="../document/css/custom.css" />
+	<script src="../document/js/jquery-3.3.1.min.js"></script>
+	<script src="../document/js/bootstrap.min.js"></script>
+	
+<script>
+var txt = $.fn.tooltip.Constructor.VERSION;
+$(document).ready(function() {
 
-
+});	
+</script>
 
 
 	</head>
 
   <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -79,19 +89,81 @@
 		  
 			<ul class="list-group>
 				<li class="list-group-item"></li>
-				<li class="list-group-item">1 lb of Pork Shoulder Butt (磅 上肩肉/梅頭肉)  </li>
-				<li class="list-group-item">2 table spoons of Honey (湯匙蜂蜜) </li>
-				<li class="list-group-item">2 table spoons of water (湯匙水)</li>			
-				<li class="list-group-item">1 cube of redbean curb (塊紅腐乳) 
-				<button type="button" class="btn btn-light" data-toggle="tooltip" data-placement="right" title="2 cubes for one lb and 1 cube for every additional lb.">🛈</button> </li>			
-				<li class="list-group-item">1 table spoons of oyster sauce (湯匙蠔油) </li>			
-				<li class="list-group-item">1 table spoons of soy sauce (湯匙醬油) </li>			
-				<li class="list-group-item">1 table spoons of dark sauce (湯匙老抽)</li>			
-				<li class="list-group-item">1 table spoons of sake (湯匙清酒) </li>			
-				<li class="list-group-item">4 table spoons of sugar (湯匙糖) </li>			
-				<li class="list-group-item">1/4 tea spoons of five spice power(茶匙五香粉)</li>			
-				<li class="list-group-item">1/4 tea spoons of white pepper powder (茶匙白胡椒)</li>			
-				<li class="list-group-item">2 cloves of garlic (瓣蒜)</li>			
+				
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked1">
+						<label class="custom-control-label" for="defaultUnchecked1">1 lb of Pork Shoulder Butt (磅 上肩肉/梅頭肉)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked2">
+						<label class="custom-control-label" for="defaultUnchecked2">2 table spoons of Honey (湯匙蜂蜜)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked3">
+						<label class="custom-control-label" for="defaultUnchecked3">2 table spoons of water (湯匙水)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked4">
+						<label class="custom-control-label" for="defaultUnchecked4">1 cube of redbean curb (塊紅腐乳) 
+				</label><button type="button" class="btn btn-light" data-toggle="tooltip" data-placement="right" title="2 cubes for one lb and 1 cube for every additional lb.">🛈</button>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked5">
+						<label class="custom-control-label" for="defaultUnchecked5">1 table spoons of oyster sauce (湯匙蠔油)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked6">
+						<label class="custom-control-label" for="defaultUnchecked6">1 table spoons of soy sauce (湯匙醬油)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked7">
+						<label class="custom-control-label" for="defaultUnchecked7">1 table spoons of dark sauce (湯匙老抽)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked8">
+						<label class="custom-control-label" for="defaultUnchecked8">1 table spoons of sake (湯匙清酒) </label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked9">
+						<label class="custom-control-label" for="defaultUnchecked9">4 table spoons of sugar (湯匙糖)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked10">
+						<label class="custom-control-label" for="defaultUnchecked10">1/4 tea spoons of five spice power(茶匙五香粉)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked11">
+						<label class="custom-control-label" for="defaultUnchecked11">1/4 tea spoons of white pepper powder (茶匙白胡椒)</label>
+					</div>   
+				</li>
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="defaultUnchecked12">
+						<label class="custom-control-label" for="defaultUnchecked12">2 cloves of garlic (瓣蒜)</label>
+					</div>   
+				</li>
+				
 			</ul>
         </div>
 	 </div>  <!-- /row-->

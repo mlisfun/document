@@ -2,8 +2,22 @@
 	border-radius: 0px;
 }
 
-.navbar .in .nav li {
-   display: block;
-   float: none;
-   width:100%;
+
+.frontpage-banner {
+	font-size: 4.5rem;
+	font-weight: 300;
+	line-height: 1.2;
+	color: black;
+	text-align:center;
 }
+
+
+.frontpage-container{
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content:  space-evenly;
+
+ }
+ 

@@ -19,6 +19,39 @@ var txt = $.fn.tooltip.Constructor.VERSION;
 $(document).ready(function() {
 
 
+	$("#buttonCollapseIngredient1").click(function(){
+		var arrow_image = $("#imageCollapseIngredient1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapseIngredient1").attr("src", arrow_image);
+	});
+
+	$("#buttonCollapsePreparation1").click(function(){
+		var arrow_image = $("#imageCollapsePreparation1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapsePreparation1").attr("src", arrow_image);
+	});
+
+	$("#buttonCollapseCookingInstructions1").click(function(){
+		var arrow_image = $("#imageCollapseCookingInstructions1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapseCookingInstructions1").attr("src", arrow_image);
+	});
+
 });	
 </script>
 
@@ -57,9 +90,15 @@ $(document).ready(function() {
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-8">
-          <h3>Ingredients</h3>
+          <h3>
+		<button id="buttonCollapseIngredient1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseIngredient1" aria-expanded="false" aria-controls="collapseIngredient1">
+		Ingredients
+		<img id="imageCollapseIngredient1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
           <p>  </p>
-		  
+		  <div class="collapse" id="collapseIngredient1">
+
 			<ul class="list-group>
 				<li class="list-group-item"></li>
 				
@@ -138,14 +177,21 @@ $(document).ready(function() {
 				</li>
 				
 			</ul>
+			</div> <!-- collapse -->
         </div>
 	 </div>  <!-- /row-->
       <p>  </p>
       <div class="row">
 	  
         <div class="col-md-8">
-          <h3>Preparation</h3>
-          <p>  </p>
+          <h3>
+		<button id="buttonCollapsePreparation1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsePreparation1" aria-expanded="false" aria-controls="collapsePreparation1" id="buttonCollapseIngredient1">
+		Preparation
+		<img id="imageCollapsePreparation1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
+		<p>  </p>
+		  <div class="collapse" id="collapsePreparation1">
 		  
 			<ul class="list-group>	
 				<li class="list-group-item"></li>
@@ -187,14 +233,23 @@ $(document).ready(function() {
 				</li>
 
 			</ul>
+			</div> <!-- collapse -->
+
         </div>
       <hr>
 	 </div>  <!-- /row-->
 	 <p>  </p>
       <div class="row">
        <div class="col-md-8">
-          <h3>Cooking Instructions</h3>
-          <p>  </p>
+          <h3>
+		<button id="buttonCollapseCookingInstructions1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseCookingInstructions1" aria-expanded="false" aria-controls="collapseCookingInstructions1" id="buttonCollapseCookingInstructions1">
+		Cooking Instructions
+		<img id="imageCollapseCookingInstructions1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
+
+		<p>  </p>
+		  <div class="collapse" id="collapseCookingInstructions1">
 		  
 			<ul class="list-group>	
 				<li class="list-group-item"></li>
@@ -242,6 +297,8 @@ $(document).ready(function() {
 				</li>
 
 			</ul>
+			</div> <!-- collapse -->
+
 		</div>	  
       <hr>
 	 </div>  <!-- /row-->

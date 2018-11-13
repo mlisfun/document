@@ -18,6 +18,40 @@
 var txt = $.fn.tooltip.Constructor.VERSION;
 $(document).ready(function() {
 
+	$("#buttonCollapseIngredient1").click(function(){
+		var arrow_image = $("#imageCollapseIngredient1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapseIngredient1").attr("src", arrow_image);
+	});
+
+	$("#buttonCollapsePreparation1").click(function(){
+		var arrow_image = $("#imageCollapsePreparation1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapsePreparation1").attr("src", arrow_image);
+	});
+
+	$("#buttonCollapseCookingInstructions1").click(function(){
+		var arrow_image = $("#imageCollapseCookingInstructions1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapseCookingInstructions1").attr("src", arrow_image);
+	});
+
+
 
 });	
 </script>
@@ -40,25 +74,18 @@ $(document).ready(function() {
         <h1 class="display-3">Hainan Chicken Rice (海南鸡饭)</h1>
       </div>
     </div>
-
     <div class="container">
-		<h2>Hainan Chicken Rice (海南鸡饭)
-		</h2>
-        <h3>
-		 <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-    Learn more
-  </button>
-		</h3>
-<div class="collapse" id="collapseExample1">
-  <div class="card card-body">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  </div>
-</div>
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-8">
-          <h3>Ingredients</h3>
+          <h3>
+		<button id="buttonCollapseIngredient1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseIngredient1" aria-expanded="false" aria-controls="collapseIngredient1">
+		Ingredients
+		<img id="imageCollapseIngredient1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
           <p>  </p>
+		  <div class="collapse" id="collapseIngredient1">
 		  
 			<ul class="list-group>
 				<li class="list-group-item"></li>
@@ -66,45 +93,50 @@ $(document).ready(function() {
 				<li class="list-group-item">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="defaultUnchecked01">
-						<label class="custom-control-label" for="defaultUnchecked01">1 whole chicken ( )</label>
+						<label class="custom-control-label" for="defaultUnchecked01">1 whole chicken (鸡)</label>
 					</div>   
 				</li>
 				<li class="list-group-item">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="defaultUnchecked02">
-						<label class="custom-control-label" for="defaultUnchecked02">1 tablespoon of salt ()</label>
+						<label class="custom-control-label" for="defaultUnchecked02">2 tablespoon of salt (鹽)</label>
 					</div>   
 				</li>
 				<li class="list-group-item">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="defaultUnchecked03">
-						<label class="custom-control-label" for="defaultUnchecked03">4 cloves of garlic ()</label>
+						<label class="custom-control-label" for="defaultUnchecked03">6 cloves of garlic (蒜)</label>
 					</div>   
 				</li>
 				<li class="list-group-item">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="defaultUnchecked04">
-						<label class="custom-control-label" for="defaultUnchecked04">ginger () 
-				</label>
+						<label class="custom-control-label" for="defaultUnchecked04">ginger (生薑)</label>
 					</div>   
 				</li>
 				<li class="list-group-item">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="defaultUnchecked05">
-						<label class="custom-control-label" for="defaultUnchecked05">lemon grass ()</label>
+						<label class="custom-control-label" for="defaultUnchecked05">lemon grass (檸檬草)</label>
 					</div>   
 				</li>
 				
 			</ul>
-        </div>
+		</div> <!-- collapse -->
+		</div>
 	 </div>  <!-- /row-->
       <p>  </p>
       <div class="row">
 	  
         <div class="col-md-8">
-          <h3>Preparation</h3>
-          <p>  </p>
-		  
+          <h3>
+		<button id="buttonCollapsePreparation1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsePreparation1" aria-expanded="false" aria-controls="collapsePreparation1" id="buttonCollapseIngredient1">
+		Preparation
+		<img id="imageCollapsePreparation1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
+		<p>  </p>
+		  <div class="collapse" id="collapsePreparation1">
 			<ul class="list-group>	
 				<li class="list-group-item"></li>
 				<li class="list-group-item">
@@ -140,7 +172,7 @@ $(document).ready(function() {
 				<li class="list-group-item">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="defaultUnchecked16">
-						<label class="custom-control-label" for="defaultUnchecked16">Store the chicken in the fridge for 1 or 2 hours.</label>
+						<label class="custom-control-label" for="defaultUnchecked16">Store the chicken in the fridge for atleast 2 hours.</label>
 					</div>   
 				</li>
 				<li class="list-group-item">
@@ -151,14 +183,22 @@ $(document).ready(function() {
 				</li>
 
 			</ul>
+		</div> <!-- collapse -->
         </div>
       <hr>
 	 </div>  <!-- /row-->
 	 <p>  </p>
       <div class="row">
        <div class="col-md-8">
-          <h3>Cooking Instructions</h3>
-          <p>  </p>
+          <h3>
+		<button id="buttonCollapseCookingInstructions1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseCookingInstructions1" aria-expanded="false" aria-controls="collapseCookingInstructions1" id="buttonCollapseCookingInstructions1">
+		Cooking Instructions
+		<img id="imageCollapseCookingInstructions1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
+
+		<p>  </p>
+		  <div class="collapse" id="collapseCookingInstructions1">
 		  
 			<ul class="list-group>	
 				<li class="list-group-item"></li>
@@ -236,6 +276,8 @@ $(document).ready(function() {
 				</li>
 
 			</ul>
+		</div> <!-- collapse -->
+			
 		</div>	  
       <hr>
 	 </div>  <!-- /row-->

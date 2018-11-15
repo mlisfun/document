@@ -19,74 +19,23 @@
 <script>
 var txt = $.fn.tooltip.Constructor.VERSION;
 
-function duplicateRow(ntemplate,entryType, entryRow ) {
-	console.log("entry row " + entryRow);
-	i = 0;
-	text = '';
-	max = 0;
-	max = 0+ entryRow.length;
-	while (i < max) {
-		newTemplate = ntemplate.replace(/#id#/g,  entryType + (i + 1));
-		newTemplate = newTemplate.replace(/#content#/g,  entryRow[i]);
-		text += newTemplate;
-		i++;
-	}
-	return text;
-}
 
 var ingredientList = ["Saab", "Volvo", "BMW"];
 var preparationList = ["Saab", "Volvo", "BMW"];
 var cIntructionList = ["Saab", "Volvo", "BMW"];
+var recipeName = "";
+var recipeDescription = "";
 
-//recipesrc = 'file:///D:/GitHub_repo/document/recipes/ginger_beef_shank.json';
+
 recipesrc = './recipes/ginger_beef_shank.json';
-
-/*
-$.ajaxSetup({beforeSend: function(xhr){
-  if (xhr.overrideMimeType)
-  {
-    xhr.overrideMimeType("application/json");
-  }
-}
-});
-*/
 
 
 
 $(document).ready(function() {
-				console.log("before " + typeof(ingredientList) + ingredientList.length);
 
+	console.log("before " + typeof(ingredientList) + ingredientList.length);
 
-
-	$.ajax({
-		 url:recipesrc,
-		 dataType: 'json', // Notice! JSONP <-- P (lowercase)
-		 success:function(json){
-			 // do stuff with json (in this case an array)
-			 //alert("Success --  " + json.recipe.ingredient );
-				ingredientList = json.recipe.ingredient;
-				preparationList = json.recipe.preparation;
-				cIntructionList = json.recipe.cookInstruction;
-				text = "";
-				text = $("#ingredientList").html();
-				text = duplicateRow(text,'ingredientchkbx', ingredientList);
-				$("#ingredientList").html(text);
-				text = $("#preparationList").html();
-				text = duplicateRow(text,'prepchkbx', preparationList);
-				$("#preparationList").html(text);
-				text = $("#cInstructionList").html();
-				text = duplicateRow(text,'instchkbx', cIntructionList);
-				$("#cInstructionList").html(text);
-
-			 
-		 },
-		 error:function(){
-			 alert("Error");
-		 }      
-	});
-
-
-
+	loadContent(recipesrc ) ;
 	
 	
 	$("#buttonCollapseIngredient1").click(function(){
@@ -133,14 +82,14 @@ $(document).ready(function() {
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Char Siu</li>
+    <li class="breadcrumb-item active" aria-current="page">Ginger Beef Shank</li>
   </ol>
 </nav>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 class="display-3">Ginger Beef Shank recipe </h1>
-        <h5>....</h5>
+        <h1 class="display-3" id="recipeName">Ginger Beef Shank recipe </h1>
+        <h5 id="recipeDescription">....</h5>
 		</div>
     </div>
     <div class="container">

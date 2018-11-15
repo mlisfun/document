@@ -1,153 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+	<meta name="Expires" content="Tue, 01 Jun 1999 19:58:02 GMT"> 
 
     <title>Food Recipies</title>
 	<link rel="stylesheet" href="../document/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../document/css/custom.css"/>
 	
-	<link rel="stylesheet" href="../document/css/custom.css" />
+	<script src="../document/js/jquery-3.3.1.min.js"></script>
+	<script src="../document/js/bootstrap.min.js"></script>
+	<script src="../document/js/recipe.js"></script>
+<script>
+var txt = $.fn.tooltip.Constructor.VERSION;
+
+function duplicateRow(ntemplate,entryType, entryRow ) {
+	console.log("entry row " + entryRow);
+	i = 0;
+	text = '';
+	max = 0;
+	max = 0+ entryRow.length;
+	while (i < max) {
+		newTemplate = ntemplate.replace(/#id#/g,  entryType + (i + 1));
+		newTemplate = newTemplate.replace(/#content#/g,  entryRow[i]);
+		text += newTemplate;
+		i++;
+	}
+	return text;
+}
+
+var ingredientList = ["Saab", "Volvo", "BMW"];
+var preparationList = ["Saab", "Volvo", "BMW"];
+var cIntructionList = ["Saab", "Volvo", "BMW"];
+
+//recipesrc = 'file:///D:/GitHub_repo/document/recipes/ginger_beef_shank.json';
+recipesrc = './recipes/ginger_beef_shank.json';
+
+/*
+$.ajaxSetup({beforeSend: function(xhr){
+  if (xhr.overrideMimeType)
+  {
+    xhr.overrideMimeType("application/json");
+  }
+}
+});
+*/
 
 
+
+$(document).ready(function() {
+				console.log("before " + typeof(ingredientList) + ingredientList.length);
+
+
+
+	$.ajax({
+		 url:recipesrc,
+		 dataType: 'json', // Notice! JSONP <-- P (lowercase)
+		 success:function(json){
+			 // do stuff with json (in this case an array)
+			 //alert("Success --  " + json.recipe.ingredient );
+				ingredientList = json.recipe.ingredient;
+				preparationList = json.recipe.preparation;
+				cIntructionList = json.recipe.cookInstruction;
+				text = "";
+				text = $("#ingredientList").html();
+				text = duplicateRow(text,'ingredientchkbx', ingredientList);
+				$("#ingredientList").html(text);
+				text = $("#preparationList").html();
+				text = duplicateRow(text,'prepchkbx', preparationList);
+				$("#preparationList").html(text);
+				text = $("#cInstructionList").html();
+				text = duplicateRow(text,'instchkbx', cIntructionList);
+				$("#cInstructionList").html(text);
+
+			 
+		 },
+		 error:function(){
+			 alert("Error");
+		 }      
+	});
+
+
+
+	
+	
+	$("#buttonCollapseIngredient1").click(function(){
+		var arrow_image = $("#imageCollapseIngredient1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapseIngredient1").attr("src", arrow_image);
+	});
+
+	$("#buttonCollapsePreparation1").click(function(){
+		var arrow_image = $("#imageCollapsePreparation1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapsePreparation1").attr("src", arrow_image);
+	});
+
+	$("#buttonCollapseCookingInstructions1").click(function(){
+		var arrow_image = $("#imageCollapseCookingInstructions1").attr('src');
+		if (arrow_image.indexOf('up') > 0) {
+				arrow_image = "./images/arrow_down.png";
+		} else {
+				arrow_image = "./images/arrow_up.png";
+		
+		}
+		$("#imageCollapseCookingInstructions1").attr("src", arrow_image);
+	});
+
+});	
+</script>
 
 
 	</head>
 
   <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Cantonese</a></li>
+    <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Char Siu</li>
   </ol>
 </nav>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 class="display-3">Welcome to My Recipes World</h1>
-        <h3 class="display-5">Recipies on this page are meals I have cooked many times</h2>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
+        <h1 class="display-3">Ginger Beef Shank recipe </h1>
+        <h5>....</h5>
+		</div>
     </div>
-
     <div class="container">
-		<h2>Char Siu (叉燒)
-		</h2>
+<img class="rounded float-right" style="width:500px" src="./images/charsiu.jpg">
+    </div>
+    <div class="container">
+<!--		
+        <h3>
+		 <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+    Learn more
+  </button>
+		</h3>
+<div class="collapse" id="collapseExample1">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+  
+</div>
+-->
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-8">
-          <h3>Ingredients</h3>
-          <p>  </p>
-		  
-			<ul class="list-group>
-				<li class="list-group-item"></li>
-				<li class="list-group-item">1 lb of Pork Shoulder Butt (磅 上肩肉/梅頭肉)  </li>
-				<li class="list-group-item">2 teaspone of Honey (湯匙蜂蜜) </li>
-				<li class="list-group-item">2 teaspoons of water (湯匙水)</li>			
-				<li class="list-group-item">2 cubes of redbean curb (塊紅腐乳) 
-				<button type="button" class="btn btn-light" data-toggle="tooltip" data-placement="right" title="Tooltip on right">🛈</button> </li>			
-				<li class="list-group-item">1 tespoons of oyster source (湯匙蠔油) </li>			
-				<li class="list-group-item">1 teaspoons of soy source (湯匙醬油) </li>			
-				<li class="list-group-item">1 teaspoons of dark source (湯匙老抽)</li>			
-				<li class="list-group-item">1 teaspoons of sake (湯匙清酒) </li>			
-				<li class="list-group-item">4 teaspoons of sugar (湯匙糖) </li>			
-				<li class="list-group-item">1/4 teaspoons of five spice power(湯匙五香粉)</li>			
-				<li class="list-group-item">1/4 teaspoons of white pepper powder (湯匙白胡椒)</li>			
-				<li class="list-group-item">2 cloves of garlic (瓣蒜)</li>			
+        <div class="col-12">
+          <h3>
+		<button id="buttonCollapseIngredient1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseIngredient1" aria-expanded="false" aria-controls="collapseIngredient1">
+		Ingredients
+		<img id="imageCollapseIngredient1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
+		  <div class="collapse" id="collapseIngredient1">
+
+			<ul class="list-group" id="ingredientList">
+				
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="#id#">
+						<label class="custom-control-label" for="#id#">#content#</label>
+					</div>   
+				</li>
+				
 			</ul>
-        </div>
+			</div> <!-- collapse -->
+        </div> <!-- column -->
 	 </div>  <!-- /row-->
       <p>  </p>
       <div class="row">
 	  
-        <div class="col-md-8">
-          <h3>Preparing Instructions</h3>
-          <p>  </p>
+        <div class="col-12">
+          <h3>
+		<button id="buttonCollapsePreparation1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsePreparation1" aria-expanded="false" aria-controls="collapsePreparation1" id="buttonCollapseIngredient1">
+		Preparation
+		<img id="imageCollapsePreparation1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
+		<p>  </p>
+		  <div class="collapse" id="collapsePreparation1">
 		  
-			<ul class="list-group>	
-				<li class="list-group-item"></li>
-				<li class="list-group-item">Mince garlic</li>
-				<li class="list-group-item">Pour sources into a bowl and mix the sources</li>
-				<li class="list-group-item">marinate meat with the source.</li>
-				<li class="list-group-item">store marinated meat in fridge for 2 days.</li>
+			<ul class="list-group" id="preparationList">	
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="#id#">
+						<label class="custom-control-label" for="#id#">#content#</label>
+					</div>   
+				</li>
 
 			</ul>
-        </div>
+			</div> <!-- collapse -->
+
+        </div><!-- column -->
       <hr>
 	 </div>  <!-- /row-->
 	 <p>  </p>
       <div class="row">
-       <div class="col-md-8">
-          <h3>Cooking Instructions</h3>
-          <p>  </p>
+        <div class="col-12">
+          <h3>
+		<button id="buttonCollapseCookingInstructions1" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapseCookingInstructions1" aria-expanded="false" aria-controls="collapseCookingInstructions1" id="buttonCollapseCookingInstructions1">
+		Cooking Instructions
+		<img id="imageCollapseCookingInstructions1" class="card-img-top" src="./images/arrow_down.png" style="width:20px;height:20px;"> 
+		</button>
+		</h3>
+
+		<p>  </p>
+		  <div class="collapse" id="collapseCookingInstructions1">
 		  
-			<ul class="list-group>	
-				<li class="list-group-item"></li>
-				<li class="list-group-item">Preheat the oven to 400 F</li>
-				<li class="list-group-item">Put the meat in the oven for 25 minutes.</li>
-				<li class="list-group-item">take it out, flip and brush source.</li>
-				<li class="list-group-item">Put the meat in the oven for 25 minutes.</li>
-				<li class="list-group-item">Mix 2湯匙蜂蜜 and  少許水</li>			
-				<li class="list-group-item">take the meat out and brush honey source.</li>
-				<li class="list-group-item">Put the meat in for 5 minutes.</li>
+			<ul class="list-group" id="cInstructionList">	
+				<li class="list-group-item">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="#id#">
+						<label class="custom-control-label" for="#id#">#content#</label>
+					</div>   
+				</li>
 
 			</ul>
-		</div>	  
+			</div> <!-- collapse -->
+
+		</div><!-- column -->	  
       <hr>
 	 </div>  <!-- /row-->
+
+
 
       <footer>
         <p>&copy; Company 2017</p>
       </footer>
     </div> <!-- /container -->
-
-
+ 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
  <!-- Latest compiled and minified CSS -->
+<!--
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
   </body>

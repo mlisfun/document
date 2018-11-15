@@ -1,0 +1,23 @@
+{"recipe":{
+"ingredient":["ginger",
+			"garlic",
+			"fish sauce",
+			"beef shank",
+			"corn starch"
+			],
+"preparation":["cut ginger into strips",
+			 "mince garlic",
+			 "cut beef shank into thin slices",
+			 "marinate beef shank slices with corn starch for 10 minutes"
+			],
+"cookInstruction" : [
+			"Preheat work on stove",
+			"Put cooking oil in the wok then add minced garlic",
+			"Put ginger strips into the wok and turn the heat to medium",
+			"Stir fry ginger to golden color",
+			"Put beef shank and add fish sauce for 5 minutes",
+			"Mix corn starch with water then put it the wok",
+			"Cook for 1 minute"
+			]
+}
+}

@@ -25,7 +25,7 @@ function loadContent(recipesrc ) {
 				ingredientList = json.recipe.ingredient;
 				preparationList = json.recipe.preparation;
 				cIntructionList = json.recipe.cookInstruction;
-				
+				$("#recipeImage").attr("src", json.recipe.recipeImageUrl);				
 				$('#recipeName').text(recipeName);
 				$('#recipeDescription').text(recipeDescription);
 				text = "";
